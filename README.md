@@ -1,5 +1,5 @@
 #Improved Multimodal Deep Learning with Variation of Information<br />
-######Kihyuk Sohn, Wenling Shang and Honglak Lee, NIPS 2014<br />
+######Kihyuk Sohn, Wenling Shang and Honglak Lee, NIPS 2014 [[pdf](http://papers.nips.cc/paper/5279-improved-multimodal-deep-learning-with-variation-of-information.pdf)]<br />
 ######for any question, please leave a message: kihyuk.sohn@gmail.com 
 
 ##MNIST database
