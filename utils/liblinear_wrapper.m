@@ -21,9 +21,9 @@ parfor j = 1:length(Clist);
     C = Clist(j);
     opt_svm = sprintf('-s 2 -B 1 -c %g -q', C);
     model = train(ytrain, sparse(double(xtrain)), opt_svm, 'col');
-    [~, acc_train] = predict(ytrain, sparse(double(xtrain)), model, '-q','col');
-    [~, acc_val] = predict(yval, sparse(double(xval)), model, '-q','col');
-    [~, acc_ts] = predict(ytest, sparse(double(xtest)), model, '-q','col');
+    [~, acc_train,~] = predict(ytrain, sparse(double(xtrain)), model, '-q','col');
+    [~, acc_val,~] = predict(yval, sparse(double(xval)), model, '-q','col');
+    [~, acc_ts,~] = predict(ytest, sparse(double(xtest)), model, '-q','col');
     acc_train_list(j) = acc_train(1);
     acc_val_list(j) = acc_val(1);
     acc_ts_list(j) = acc_ts(1);
@@ -40,8 +40,8 @@ if ~exist('xtest','var') || isempty(xtest) || ~exist('ytest','var') || isempty(y
 else
     model = model_list{id};
     
-    [~, acc_train] = predict(ytrain, sparse(double(xtrain)), model, '-q','col');
-    [~, acc_test] = predict(ytest, sparse(double(xtest)), model, '-q','col');
+    [~, acc_train,~] = predict(ytrain, sparse(double(xtrain)), model, '-q','col');
+    [~, acc_test,~] = predict(ytest, sparse(double(xtest)), model, '-q','col');
     fprintf('Liblinear after CV: C=%g, trainerr=%g, valerr=%g, testerr=%g\n', bestC, 100-acc_train(1), 100-acc_val, 100-acc_test(1));
 end
 
